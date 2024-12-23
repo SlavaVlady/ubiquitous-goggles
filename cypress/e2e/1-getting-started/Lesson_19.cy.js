@@ -156,34 +156,36 @@ describe('Registration Tests with Basic Auth', () => {
         cy.get('#signupRepeatPassword').type(repeatPassword);
         cy.log(`Entered password: ${password}`);
         cy.log(`Entered repeat password: ${repeatPassword}`);
+        cy.get('#signupName').focus();
         cy.contains('Passwords do not match').should('be.visible');
         cy.get('button[type="button"]').should('be.disabled');
     });
-    
-    //нет сообщения о том,что поле пустое, но в требованиях этот кейс есть!
 
      it('should show an error for an empty last name', () => {
         cy.get('#signupName').type('Test');
+        cy.get('#signupLastName').focus();
         cy.get('#signupEmail').type(`test${Date.now()}vs@mailinator.com`);
         cy.get('#signupPassword').type('Test1234!');
         cy.get('#signupRepeatPassword').type('Test1234!'); 
-        cy.contains('Last name is required').should('be.visible');
+        cy.contains('Last name required').should('be.visible');
         cy.get('button[type="button"]').should('be.disabled');
     });
     it('should show an error for an empty name', () => {
+        cy.get('#signupName').focus();
         cy.get('#signupLastName').type('Test');
         cy.get('#signupEmail').type(`test${Date.now()}vs@mailinator.com`);
         cy.get('#signupPassword').type('Test1234!');
         cy.get('#signupRepeatPassword').type('Test1234!');
-        cy.contains('Name is required').should('be.visible');
+        cy.contains('Name required').should('be.visible');
         cy.get('button[type="button"]').should('be.disabled');
     });
     it('should show an error for an empty email', () => {
         cy.get('#signupName').type('Vlada');
         cy.get('#signupLastName').type('Test');
+        cy.get('#signupEmail').focus();
         cy.get('#signupPassword').type('Test1234!');
         cy.get('#signupRepeatPassword').type('Test1234!');
-        cy.contains('Email is required').should('be.visible');
+        cy.contains('Email required').should('be.visible');
         cy.get('button[type="button"]').should('be.disabled');
     });
 
@@ -192,23 +194,18 @@ describe('Registration Tests with Basic Auth', () => {
         cy.get('#signupLastName').type('Test');
         cy.get('#signupEmail').type(`test${Date.now()}vs@mailinator.com`);
         cy.get('#signupPassword').type('Test1234!');
-        cy.contains('Password confirmation is required').should('be.visible');
+        cy.get('#signupRepeatPassword').focus();
+        cy.get('#signupPassword').focus();
+        cy.contains('Re-enter password required').should('be.visible');
         cy.get('button[type="button"]').should('be.disabled');
     });
     it('should show an error for an empty password', () => {
         cy.get('#signupName').type('Vlada');
         cy.get('#signupLastName').type('Test');
         cy.get('#signupEmail').type(`test${Date.now()}vs@mailinator.com`);
+        cy.get('#signupPassword').focus();
         cy.get('#signupRepeatPassword').type('Test1234!');
-        cy.contains('Password is required').should('be.visible');
-        cy.get('button[type="button"]').should('be.disabled');
-    });
-    it('should show an error for an empty repeat password field', () => {
-        cy.get('#signupName').type('Vlada');
-        cy.get('#signupLastName').type('Test');
-        cy.get('#signupEmail').type(`test${Date.now()}vs@mailinator.com`);
-        cy.get('#signupPassword').type('Test1234!');
-        cy.contains('Password confirmation is required').should('be.visible');
+        cy.contains('Password required').should('be.visible');
         cy.get('button[type="button"]').should('be.disabled');
     });
 
