@@ -1,0 +1,109 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2024-12-26T16:15:35.086Z",
+    "end": "2024-12-26T16:15:39.002Z",
+    "duration": 3916,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "e93c8a9a-7d53-40c9-aa4c-df4a08b98ce2",
+      "title": "",
+      "fullFile": "cypress/e2e/1-getting-started/Lesson_20.cy.js",
+      "file": "cypress/e2e/1-getting-started/Lesson_20.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "fca49f8e-ec96-404c-97fc-9e1a4c916300",
+          "title": "Garage and Expenses Tests",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should add BMW X5 and add fuel expense",
+              "fullTitle": "Garage and Expenses Tests should add BMW X5 and add fuel expense",
+              "timedOut": null,
+              "duration": 3869,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "_GaragePage.default.navigateToAddCar();\n_GaragePage.default.addCar('BMW', 'X5', '100');\ncy.contains('BMW X5').should('be.visible');\ncy.contains('Add fuel expense').click();\n_ExpensesPage.default.addExpense('BMW X5', '2024-12-26', '150', '100', '50');\ncy.contains('150').should('be.visible');\ncy.contains('50').should('be.visible');\ncy.contains('100').should('be.visible');",
+              "err": {
+                "message": "CypressError: `cy.click()` cannot be called on a `<select>` element. Use `cy.select()` command instead to change the value.\n\nhttps://on.cypress.io/select",
+                "estack": "CypressError: `cy.click()` cannot be called on a `<select>` element. Use `cy.select()` command instead to change the value.\n\nhttps://on.cypress.io/select\n    at perform (https://qauto.forstudy.space/__cypress/runner/cypress_runner.js:112431:70)\n    at tryCatcher (https://qauto.forstudy.space/__cypress/runner/cypress_runner.js:1830:23)\n    at Object.gotValue (https://qauto.forstudy.space/__cypress/runner/cypress_runner.js:6499:18)\n    at Object.gotAccum (https://qauto.forstudy.space/__cypress/runner/cypress_runner.js:6488:25)\n    at Object.tryCatcher (https://qauto.forstudy.space/__cypress/runner/cypress_runner.js:1830:23)\n    at Promise._settlePromiseFromHandler (https://qauto.forstudy.space/__cypress/runner/cypress_runner.js:1542:31)\n    at Promise._settlePromise (https://qauto.forstudy.space/__cypress/runner/cypress_runner.js:1599:18)\n    at Promise._settlePromiseCtx (https://qauto.forstudy.space/__cypress/runner/cypress_runner.js:1636:10)\n    at _drainQueueStep (https://qauto.forstudy.space/__cypress/runner/cypress_runner.js:2434:12)\n    at _drainQueue (https://qauto.forstudy.space/__cypress/runner/cypress_runner.js:2423:9)\n    at Async._drainQueues (https://qauto.forstudy.space/__cypress/runner/cypress_runner.js:2439:5)\n    at Async.drainQueues (https://qauto.forstudy.space/__cypress/runner/cypress_runner.js:2309:14)\nFrom Your Spec Code:\n    at GaragePage.addCar (webpack:///./cypress/pages/GaragePage.js:8:31)\n    at Context.eval (webpack:///./cypress/e2e/1-getting-started/Lesson_20.cy.js:23:15)",
+                "diff": null
+              },
+              "uuid": "ded2f49d-dd89-446b-8221-63cca00b88e5",
+              "parentUUID": "fca49f8e-ec96-404c-97fc-9e1a4c916300",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "ded2f49d-dd89-446b-8221-63cca00b88e5"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 3869,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

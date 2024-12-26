@@ -1,0 +1,109 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2024-12-23T17:45:50.482Z",
+    "end": "2024-12-23T17:45:56.837Z",
+    "duration": 6355,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "78c8eddd-8610-46df-86f1-38df02d463e1",
+      "title": "",
+      "fullFile": "cypress/e2e/1-getting-started/Lesson_20.cy.js",
+      "file": "cypress/e2e/1-getting-started/Lesson_20.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "406711e0-aa5c-458d-af3e-46eb0d80a0e0",
+          "title": "Garage and Expenses Tests",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should add BMW X5 and add fuel expense",
+              "fullTitle": "Garage and Expenses Tests should add BMW X5 and add fuel expense",
+              "timedOut": null,
+              "duration": 6170,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "// Добавляем автомобиль BMW X5\n_GaragePage.default.navigateToAddCar();\n_GaragePage.default.addCar('BMW', 'X5', '100'); // Параметры автомобиля\n// Проверяем, что машина добавлена\ncy.contains('BMW X5').should('be.visible');\n// Кликаем на кнопку \"Add fuel expense\"\ncy.contains('Add fuel expense').click();\n// Добавляем расход на топливо\n_ExpensesPage.default.addExpense('BMW X5', '2024-12-23', '150', '100', '50'); // Параметры расхода\n// Проверяем, что данные расхода отображаются на странице\ncy.contains('150').should('be.visible');\ncy.contains('50').should('be.visible');\ncy.contains('100').should('be.visible');",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `#signinEmail`, but never found it.\n\nBecause this error occurred during a `before each` hook we are skipping the remaining tests in the current suite: `Garage and Expenses Tests`",
+                "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `#signinEmail`, but never found it.\n\nBecause this error occurred during a `before each` hook we are skipping the remaining tests in the current suite: `Garage and Expenses Tests`\n    at Context.eval (webpack:///./cypress/support/commands.js:3:8)",
+                "diff": null
+              },
+              "uuid": "76a29898-f1f6-4e17-97f5-5cf469da98d0",
+              "parentUUID": "406711e0-aa5c-458d-af3e-46eb0d80a0e0",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "76a29898-f1f6-4e17-97f5-5cf469da98d0"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 6170,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

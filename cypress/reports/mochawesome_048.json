@@ -1,0 +1,109 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2024-12-26T17:05:15.132Z",
+    "end": "2024-12-26T17:05:24.626Z",
+    "duration": 9494,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "f5584f38-788b-43cc-87d8-a0343107acbe",
+      "title": "",
+      "fullFile": "cypress/e2e/1-getting-started/Lesson_20.cy.js",
+      "file": "cypress/e2e/1-getting-started/Lesson_20.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "dd4671f8-d777-43be-9d43-2638e7cacb4b",
+          "title": "Garage and Expenses Tests",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should add BMW X5 and add fuel expense with liters and total cost",
+              "fullTitle": "Garage and Expenses Tests should add BMW X5 and add fuel expense with liters and total cost",
+              "timedOut": null,
+              "duration": 9441,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "_GaragePage.default.navigateToAddCar();\n_GaragePage.default.addCar('BMW', 'X5', '100');\ncy.contains('BMW X5').should('be.visible');\ncy.contains('Add fuel expense').click();\n_ExpensesPage.default.addExpense('', '', '120', '100', '50');\ncy.get('#addExpenseCar').should('have.value', 'BMW X5');\ncy.get('#addExpenseDate').should('have.value', '2024-12-26');\ncy.get('#addExpenseMileage').should('have.value', '120');\ncy.get('#addExpenseLiters').should('have.value', '50');\ncy.get('#addExpenseTotalCost').should('have.value', '100');\n// Проверяем, что расход с литрами и стоимостью отображается на странице\ncy.contains('50').should('be.visible'); // Литры\ncy.contains('100').should('be.visible'); // Стоимость",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `#addExpenseCar`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `#addExpenseCar`, but never found it.\n    at Context.eval (webpack:///./cypress/e2e/1-getting-started/Lesson_20.cy.js:28:29)",
+                "diff": null
+              },
+              "uuid": "fc8c3d38-2c65-459f-8ea5-ed7bdf8a4fab",
+              "parentUUID": "dd4671f8-d777-43be-9d43-2638e7cacb4b",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "fc8c3d38-2c65-459f-8ea5-ed7bdf8a4fab"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 9441,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

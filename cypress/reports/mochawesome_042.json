@@ -1,0 +1,109 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2024-12-26T16:36:44.887Z",
+    "end": "2024-12-26T16:36:49.719Z",
+    "duration": 4832,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "e7482ba3-bd6d-4de0-8a6f-fcf0a358fce1",
+      "title": "",
+      "fullFile": "cypress/e2e/1-getting-started/Lesson_20.cy.js",
+      "file": "cypress/e2e/1-getting-started/Lesson_20.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "0350f9f6-a8fc-412f-b59e-9e9d07415087",
+          "title": "Garage and Expenses Tests",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should add BMW X5 and add fuel expense",
+              "fullTitle": "Garage and Expenses Tests should add BMW X5 and add fuel expense",
+              "timedOut": null,
+              "duration": 4788,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "// Добавление автомобиля\n_GaragePage.default.navigateToAddCar();\n_GaragePage.default.addCar('BMW', 'X5', '100');\ncy.contains('BMW X5').should('be.visible');\ncy.contains('Add fuel expense').click();\n// Заполнение формы расходов с литрами и стоимостью\n_ExpensesPage.default.addExpense('', '', '100', '50');\n// Добавляем проверки, что поля правильно заполняются\ncy.get('#addExpenseLiters').should('have.value', '50'); // Проверяем, что литры заполнены\ncy.get('#addExpenseTotalCost').should('have.value', '100'); // Проверяем, что стоимость заполнена\n// Кликаем по кнопке \"Add\" и проверяем успешность\ncy.contains('Add').click();\n// Проверяем, что расход с литрами и стоимостью отображается на странице\ncy.contains('50').should('be.visible'); // Литры\ncy.contains('100').should('be.visible'); // Стоимость",
+              "err": {
+                "message": "CypressError: `cy.type()` cannot accept an empty string. You need to actually type something.\n\nhttps://on.cypress.io/type",
+                "estack": "CypressError: `cy.type()` cannot accept an empty string. You need to actually type something.\n\nhttps://on.cypress.io/type\n    at type (https://qauto.forstudy.space/__cypress/runner/cypress_runner.js:115260:68)\n    at originalFn (https://qauto.forstudy.space/__cypress/runner/cypress_runner.js:111895:30)\n    at overridden.fn (https://qauto.forstudy.space/__cypress/runner/cypress_runner.js:111900:21)\n    at wrapped (https://qauto.forstudy.space/__cypress/runner/cypress_runner.js:137964:19)\nFrom Your Spec Code:\n    at ExpensesPage.addExpense (webpack:///./cypress/pages/ExpensesPage.js:8:34)\n    at Context.eval (webpack:///./cypress/e2e/1-getting-started/Lesson_20.cy.js:28:17)",
+                "diff": null
+              },
+              "uuid": "932ee866-b4d9-49ac-8677-ef1f61d58ae9",
+              "parentUUID": "0350f9f6-a8fc-412f-b59e-9e9d07415087",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "932ee866-b4d9-49ac-8677-ef1f61d58ae9"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 4788,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}
