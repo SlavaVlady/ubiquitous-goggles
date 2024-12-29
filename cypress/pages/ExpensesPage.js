@@ -1,51 +1,81 @@
 class ExpensesPage {
+    get expenseHeader() {
+        return cy.get('.panel-page_heading.d-flex.flex-column.flex-lg-row');
+    }
+
+    get expenseSection() {
+        return cy.contains('Fuel expenses');
+    }
+
+    get carDropdown() {
+        return cy.get('.car-select-dropdown.dropdown');
+    }
+
+    get addExpenseCarField() {
+        return cy.get('#addExpenseCar');
+    }
+
+    get addExpenseDateField() {
+        return cy.get('#addExpenseDate');
+    }
+
+    get addExpenseMileageField() {
+        return cy.get('#addExpenseMileage');
+    }
+
+    get addExpenseLitersField() {
+        return cy.get('#addExpenseLiters');
+    }
+
+    get addExpenseTotalCostField() {
+        return cy.get('#addExpenseTotalCost');
+    }
+
+    get addButton() {
+        return cy.get('.modal-content').find('button.btn-primary').contains('Add');
+    }
+
     navigateToExpenses() {
-        cy.contains('Add an expense').click();
+        cy.contains('Add fuel expense').click();
     }
 
     addExpense(carModel, date, mileage, totalCost, liters) {
         if (carModel) {
-            cy.get('#addExpenseCar').then($carField => {
+            this.addExpenseCarField.then(($carField) => {
                 if ($carField.val() === '') {
-                    cy.get('#addExpenseCar').select(carModel);
+                    this.addExpenseCarField.select(carModel);
                 }
             });
         }
 
         if (date) {
-            cy.get('#addExpenseDate').then($dateField => {
+            this.addExpenseDateField.then(($dateField) => {
                 if ($dateField.val() === '') {
-                    cy.get('#addExpenseDate').type(date);
+                    this.addExpenseDateField.type(date);
                 }
             });
         }
 
-        cy.get('#addExpenseMileage').clear().type(mileage); 
+        this.addExpenseMileageField.clear().type(mileage);
 
         if (liters) {
-            cy.get('#addExpenseLiters').then($litersField => {
+            this.addExpenseLitersField.then(($litersField) => {
                 if ($litersField.val() === '') {
-                    cy.get('#addExpenseLiters').type(liters);
+                    this.addExpenseLitersField.type(liters);
                 }
             });
         }
 
         if (totalCost) {
-            cy.get('#addExpenseTotalCost').then($totalCostField => {
+            this.addExpenseTotalCostField.then(($totalCostField) => {
                 if ($totalCostField.val() === '') {
-                    cy.get('#addExpenseTotalCost').type(totalCost);
+                    this.addExpenseTotalCostField.type(totalCost);
                 }
             });
         }
 
-        cy.get('.modal-content')
-            .find('button.btn-primary')
-            .contains('Add')
-            .should('be.visible')
-            .click();
+        this.addButton.should('be.visible').click();
     }
 }
 
 export default new ExpensesPage();
-
-
